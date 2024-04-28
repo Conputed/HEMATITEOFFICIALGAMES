@@ -3,120 +3,197 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Games</title>
-<link href="https://fonts.googleapis.com/css2?family=Outfit&display=swap" rel="stylesheet">
+<title>Particle Background</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
 <style>
-body{margin:0;font:normal 75% Arial,Helvetica,sans-serif}canvas{display:block;vertical-align:bottom}#particles-js{position:absolute;width:100%;height:100%;background-color:#100f0f;background-image:url("");background-repeat:no-repeat;background-size:cover;background-position:50% 50%}.image-buttons{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:10px;padding:20px}.image-button{position:relative;width:200px;height:200px;border:5px solid #1B1212;border-radius:10px;overflow:hidden;transition:all 0.3s ease}.image-button:hover{transform:scale(1.05)}.image-button img{width:100%;height:100%;object-fit:cover}.play-icon{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:50px;height:50px;opacity:0;transition:opacity 0.3s ease}.image-button:hover .play-icon{opacity:1}
+body {
+margin: 0;
+padding: 0;
+}
+
+#particles-js {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: #000;
+background-image: url('https://slicker.me/javascript/images/particles.jpg');
+background-size: cover;
+background-position: 50% 50%;
+background-repeat: no-repeat;
+z-index: -1;
+}
+
+.button-container {
+z-index: 1000;
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+align-items: center;
+position: relative;
+margin-top: calc(50vh - 90px);
+}
+
+.image-button {
+position: relative;
+background: none;
+border: none;
+border-radius: 15px;
+cursor: pointer;
+padding: 0;
+width: 180px;
+height: 180px;
+transition: all 0.3s ease-in-out;
+overflow: hidden;
+margin: 10px;
+}
+
+.image-button:hover {
+transform: scale(1.05);
+}
+
+.image-button img {
+width: 100%;
+height: 100%;
+border-radius: 15px;
+transition: filter 0.3s ease-in-out;
+}
+
+.game-title {
+position: absolute;
+top: 50%;
+left: 0;
+width: 100%;
+transform: translateY(-50%);
+padding: 10px;
+text-align: center;
+color: #ffffff;
+font-family: 'Roboto', sans-serif;
+font-size: 25px;
+font-weight: 700;
+opacity: 0;
+transition: opacity 0.3s ease-in-out;
+pointer-events: none;
+overflow: hidden;
+text-overflow: ellipsis;
+}
+
+.image-button:hover .game-title {
+opacity: 1;
+}
+
+.image-button:hover img {
+filter: blur(4px);
+}
+
+.logo-container {
+position: fixed;
+top: 0;
+left: 50%;
+transform: translateX(-50%);
+z-index: 1000;
+}
+
+.logo-container img {
+width: 200px;
+height: auto;
+cursor: pointer;
+}
 </style>
 </head>
 <body>
+
 <div id="particles-js"></div>
-<div class="image-buttons">
-  <div class="image-button" onclick="redirectToWebsite1()">
-    <img src="https://i.ibb.co/BZsZ2cg/image-2024-04-14-140116584.png" alt="Image 1">
-    <img class="play-icon" src="https://i.ibb.co/XVDpV5N/image-2024-04-13-205255829.png" alt="Play Icon">
-  </div>
-  <div class="image-button" onclick="redirectToWebsite2()">
-    <img src="https://i.ibb.co/6y9CjJW/image-2024-04-14-141432836.png" alt="Image 2">
-    <img class="play-icon" src="https://i.ibb.co/XVDpV5N/image-2024-04-13-205255829.png" alt="Play Icon">
-  </div>
-  <div class="image-button" onclick="redirectToWebsite3()">
-    <img src="https://i.ibb.co/J3S4rbH/image-2024-04-14-142219299.png" alt="Image 3">
-    <img class="play-icon" src="https://i.ibb.co/XVDpV5N/image-2024-04-13-205255829.png" alt="Play Icon">
-  </div>
-  <div class="image-button" onclick="redirectToWebsite4()">
-    <img src="https://i.ibb.co/0ymgbDL/image-2024-04-14-142939995.png" alt="Image 4">
-    <img class="play-icon" src="https://i.ibb.co/XVDpV5N/image-2024-04-13-205255829.png" alt="Play Icon">
-  </div>
-  <div class="image-button" onclick="redirectToWebsite5()">
-    <img src="https://i.ibb.co/G7hJSyt/image-2024-04-19-193930482.png" alt="Image 5">
-    <img class="play-icon" src="https://i.ibb.co/XVDpV5N/image-2024-04-13-205255829.png" alt="Play Icon">
-  </div>
-  <div class="image-button" onclick="redirectToWebsite6()">
-    <img src="https://i.ibb.co/vdHNW5r/image-2024-04-19-200742466.png" alt="Image 6">
-    <img class="play-icon" src="https://i.ibb.co/XVDpV5N/image-2024-04-13-205255829.png" alt="Play Icon">
-  </div>
-  <div class="image-button" onclick="redirectToWebsite7()">
-    <img src="https://i.ibb.co/hDW7v5q/image-2024-04-19-201028793.png" alt="Image 7">
-    <img class="play-icon" src="https://i.ibb.co/XVDpV5N/image-2024-04-13-205255829.png" alt="Play Icon">
-  </div>
-  <div class="image-button" onclick="redirectToWebsite8()">
-    <img src="https://i.ibb.co/5kkSrqv/image-2024-04-15-161356178.png" alt="Image 8">
-    <img class="play-icon" src="https://i.ibb.co/XVDpV5N/image-2024-04-13-205255829.png" alt="Play Icon">
-  </div>
-  <div class="image-button" onclick="redirectToWebsite9()">
-    <img src="https://i.ibb.co/rbJZrcX/image-2024-04-19-202245297.png" alt="Image 9">
-    <img class="play-icon" src="https://i.ibb.co/XVDpV5N/image-2024-04-13-205255829.png" alt="Play Icon">
-  </div>
-  <div class="image-button" onclick="redirectToWebsite10()">
-    <img src="https://i.ibb.co/DzJ7tCN/image-2024-04-19-225854730.png" alt="Image 10">
-    <img class="play-icon" src="https://i.ibb.co/XVDpV5N/image-2024-04-13-205255829.png" alt="Play Icon">
-  </div>
-  <div class="image-button" onclick="redirectToWebsite11()">
-    <img src="https://i.ibb.co/fGfVnmz/image-2024-04-13-214849000.png" alt="Image 11">
-    <img class="play-icon" src="https://i.ibb.co/XVDpV5N/image-2024-04-13-205255829.png" alt="Play Icon">
-  </div>
-  <div class="image-button" onclick="redirectToWebsite12()">
-    <img src="https://i.ibb.co/znryTr2/image-2024-04-19-231655066.png" alt="Image 12">
-    <img class="play-icon" src="https://i.ibb.co/XVDpV5N/image-2024-04-13-205255829.png" alt="Play Icon">
-  </div>
-  <div class="image-button" onclick="redirectToWebsite13()">
-    <img src="https://i.ibb.co/hMdGXM1/image-2024-04-19-233039666.png" alt="Image 13">
-    <img class="play-icon" src="https://i.ibb.co/XVDpV5N/image-2024-04-13-205255829.png" alt="Play Icon">
-  </div>
-  <div class="image-button" onclick="redirectToWebsite14()">
-    <img src="https://i.ibb.co/qkBdzjD/image-2024-04-20-091653536.png" alt="Rocket League">
-    <img class="play-icon" src="https://i.ibb.co/XVDpV5N/image-2024-04-13-205255829.png" alt="Play Icon">
-  </div>
-  <div class="image-button" onclick="redirectToWebsite15()">
-    <img src="https://i.ibb.co/grbHCBf/image-2024-04-20-092018628.png" alt="Paper.io 2">
-    <img class="play-icon" src="https://i.ibb.co/XVDpV5N/image-2024-04-13-205255829.png" alt="Play Icon">
-  </div>
-  <div class="image-button" onclick="redirectToWebsite16()">
-    <img src="https://i.ibb.co/C1mxzRS/image-2024-04-20-093024070.png" alt="Call of Ops">
-    <img class="play-icon" src="https://i.ibb.co/XVDpV5N/image-2024-04-13-205255829.png" alt="Play Icon">
-  </div>
- <div class="image-button" onclick="redirectToWebsite17()">
-    <img src="https://i.ibb.co/G7LVLCP/image-2024-04-20-093527435.png" alt="Drift Hunters">
-    <img class="play-icon" src="https://i.ibb.co/XVDpV5N/image-2024-04-13-205255829.png" alt="Play Icon">
-  </div>
-<div class="image-button" onclick="redirectToWebsite18()">
-    <img src="https://i.ibb.co/6nHPMLQ/image-2024-04-20-094611186.png" alt="Happy Wheels">
-    <img class="play-icon" src="https://i.ibb.co/XVDpV5N/image-2024-04-13-205255829.png" alt="Play Icon">
-  </div>
-<div class="image-button" onclick="redirectToWebsite19()">
-    <img src="https://i.ibb.co/FbZJQbL/image-2024-04-20-095007067.png" alt="Drift Boss">
-    <img class="play-icon" src="https://i.ibb.co/XVDpV5N/image-2024-04-13-205255829.png" alt="Play Icon">
-  </div>
+
+<div class="logo-container">
+<a href="https://conputed.github.io/HEMATITEOFFICIAL" target="_self">
+<img src="https://i.ibb.co/HFt7X9Z/Hematite-transparent.png" alt="Logo">
+</a>
 </div>
-<div class="image-button" onclick="redirectToWebsite20()">
-    <img src="https://i.ibb.co/VMYKz6z/image-2024-04-20-100100706.png" alt="Pac-Man">
-    <img class="play-icon" src="https://i.ibb.co/XVDpV5N/image-2024-04-13-205255829.png" alt="Play Icon">
-  </div>
+
+<div class="button-container">
+<a href="https://google-opensocial.googleusercontent.com/gadgets/ifr?url=https://cdn.jsdelivr.net/gh/sk1bx/version@77d7c057275710c07925ba951e9e56902d101c84/3sp.xml&container=ig">
+<button class="image-button">
+<img src="https://i.ibb.co/znryTr2/image-2024-04-19-231655066.png" alt="Image Button">
+<span class="game-title">Slope</span>
+</button>
+</a>
+<a href="https://orteil.dashnet.org/cookieclicker/" target="_blank">
+<button class="image-button">
+<img src="https://i.ibb.co/0ymgbDL/image-2024-04-14-142939995.png" alt="Image Button">
+<span class="game-title">Cookie Clicker</span>
+</button>
+</a>
+<a href="https://storage.y8.com/y8-studio/html5/annu/moto1/?key=2365427&value=87599">
+<button class="image-button">
+<img src="https://i.ibb.co/5kkSrqv/image-2024-04-15-161356178.png" alt="Image Button">
+<span class="game-title">Moto X3M</span>
+</button>
+</a>
+<a href="https://educationbluesky.com/apps/roblox-corporation/5349/roblox.html">
+<button class="image-button">
+<img src="https://i.ibb.co/BZsZ2cg/image-2024-04-14-140116584.png" alt="Image Button">
+<span class="game-title">Roblox</span>
+</button>
+</a>
+<a href="https://scratch.mit.edu/projects/105500895/embed">
+<button class="image-button">
+<img src="https://i.ibb.co/6y9CjJW/image-2024-04-14-141432836.png" alt="Image Button">
+<span class="game-title">Geometry Dash</span>
+</button>
+</a>
+<a href="https://lekug.github.io/tn6pS9dCf37xAhkJv/">
+<button class="image-button">
+<img src="https://i.ibb.co/hDW7v5q/image-2024-04-19-201028793.png" alt="Image Button">
+<span class="game-title">Run 3</span>
+</button>
+</a>
+<a href="https://basketbros.io">
+<button class="image-button">
+<img src="https://i.ibb.co/G7hJSyt/image-2024-04-19-193930482.png" alt="Image Button">
+<span class="game-title">Basket Bros</span>
+</button>
+</a>
+<a href="https://1v1.lol">
+<button class="image-button">
+<img src="https://i.ibb.co/vdHNW5r/image-2024-04-19-200742466.png" alt="Image Button">
+<span class="game-title">1v1.LOL</span>
+</button>
+</a>
 </div>
+
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 <script>
-particlesJS("particles-js",{"particles":{"number":{"value":80,"density":{"enable":true,"value_area":800}},"color":{"value":"#ffffff"},"shape":{"type":"circle","stroke":{"width":0,"color":"#000000"},"polygon":{"nb_sides":5},"image":{"src":"img/github.svg","width":100,"height":100}},"opacity":{"value":0.5,"random":false,"anim":{"enable":false,"speed":1,"opacity_min":0.1,"sync":false}},"size":{"value":3,"random":true,"anim":{"enable":false,"speed":40,"size_min":0.1,"sync":false}},"line_linked":{"enable":true,"distance":150,"color":"#ffffff","opacity":0.4,"width":1},"move":{"enable":true,"speed":6,"direction":"none","random":false,"straight":false,"out_mode":"out","bounce":false,"attract":{"enable":false,"rotateX":600,"rotateY":1200}}},"interactivity":{"detect_on":"canvas","events":{"onhover":{"enable":true,"mode":"repulse"},"onclick":{"enable":true,"mode":"push"},"resize":true},"modes":{"grab":{"distance":400,"line_linked":{"opacity":1}},"bubble":{"distance":400,"size":40,"duration":2,"opacity":8,"speed":3},"repulse":{"distance":200,"duration":0.4},"push":{"particles_nb":4},"remove":{"particles_nb":2}}},"retina_detect":true});
-function redirectToWebsite1(){window.open("https://educationbluesky.com/apps/roblox-corporation/5349/roblox.html","_blank")}
-function redirectToWebsite2(){window.open("https://scratch.mit.edu/projects/105500895/embed","_blank")}
-function redirectToWebsite3(){window.open("https://images-opensocial.googleusercontent.com/gadgets/ifr?url=https://cdn.jsdelivr.net/gh/sk1bx/element@9cccb2fafb569c963501a5d818472b561121cea6/totm.xml&container=ig","_blank")}
-function redirectToWebsite4(){window.open("https://orteil.dashnet.org/cookieclicker/","_blank")}
-function redirectToWebsite5(){window.open("https://basketbros.io","_blank")}
-function redirectToWebsite6(){window.open("https://book-opensocial.googleusercontent.com/gadgets/ifr?url=https://cdn.jsdelivr.net/gh/mind4ur/debugactions@955cea1ae2437efeb70d98eb7b5bc05d1e64d5da/old/old.xml&container=ig","_blank")}
-function redirectToWebsite7(){window.open("https://lekug.github.io/tn6pS9dCf37xAhkJv/","_blank")}
-function redirectToWebsite8(){window.open("https://storage.y8.com/y8-studio/html5/annu/moto1/?key=2365427&value=87599","_blank")}
-function redirectToWebsite9(){window.open("https://lolbeans.io","_blank")}
-function redirectToWebsite10(){window.open("https://sd592g.github.io/zj684od4lfg/","_blank")}
-function redirectToWebsite11(){window.open("https://images-opensocial.googleusercontent.com/gadgets/ifr?url=https://s3.amazonaws.com/production-assetsbucket-8ljvyr1xczmb/1ee20621-61bc-4ec8-a8ec-5e839c2e6edc%2Ffive-nights-at-freddy-s.xml&container=ig","_blank")}
-function redirectToWebsite12(){window.open("https://google-opensocial.googleusercontent.com/gadgets/ifr?url=https://cdn.jsdelivr.net/gh/sk1bx/version@77d7c057275710c07925ba951e9e56902d101c84/3sp.xml&container=ig","_blank")}
-function redirectToWebsite13(){window.open("https://www.googlesnake.com/snakedesktop.php","_blank")}
-function redirectToWebsite14(){window.open("https://ubg77.github.io/edit/rocket-soccer-derby/","_blank")}
-function redirectToWebsite15(){window.open("https://images-opensocial.googleusercontent.com/gadgets/ifr?url=https://cdn.jsdelivr.net/gh/234sd4w5w45wers5tr-645758574456456/435345345346@main/d8g3s-53253463456pp.xml&container=ig","_blank")}
-function redirectToWebsite16(){window.open("https://zayaruzostreetorgan.com/uploads/5/5/6/7/5567194/custom_themes/666344820848380631/call_of_ops_2.html","_blank")}
-function redirectToWebsite17(){window.open("https://player.work/drift-hunters/","_blank")}
-function redirectToWebsite18(){window.open("https://games-online.io/game/HappyWheels/","_blank")}
-function redirectToWebsite19(){window.open("https://ubg98.github.io/DriftBoss/","_blank")}
-function redirectToWebsite20(){window.open("https://www.google.com/logos/2010/pacman10-i.html","_blank")}
+particlesJS('particles-js', {
+particles: {
+number: { value: 160, density: { enable: false, value_area: 800 } },
+color: { value: '#ffffff' },
+shape: {
+type: 'circle',
+stroke: { width: 0, color: '#000000' },
+polygon: { nb_sides: 5 },
+image: { src: 'img/github.svg', width: 100, height: 100 }
+},
+opacity: { value: 1, random: true, anim: { enable: true, speed: 1, opacity_min: 0, sync: false } },
+size: { value: 3, random: true, anim: { enable: false, speed: 4, size_min: 0.3, sync: false } },
+line_linked: { enable: false },
+move: { enable: true, speed: 1, direction: 'none', random: true, straight: false, out_mode: 'out', bounce: false, attract: { enable: false, rotateX: 600, rotateY: 1200 } }
+},
+interactivity: {
+detect_on: 'canvas',
+events: { onhover: { enable: false }, onclick: { enable: false }, resize: false },
+modes: {
+grab: { distance: 400, line_linked: { opacity: 1 } },
+bubble: { distance: 400, size: 40, duration: 2, opacity: 8, speed: 3 },
+repulse: { distance: 200, duration: 0.4 },
+push: { particles_nb: 4 },
+remove: { particles_nb: 2 }
+}
+},
+retina_detect: true
+});
 </script>
+
 </body>
 </html>
